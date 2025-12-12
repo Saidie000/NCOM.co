@@ -7,6 +7,7 @@
 <style>
     /* Reset */
     * {margin: 0; padding: 0; box-sizing: border-box;}
+
     body {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         background-color: #fff;
@@ -14,6 +15,7 @@
         line-height: 1.6;
         transition: background 0.3s, color 0.3s;
     }
+
     header {
         display: flex;
         justify-content: space-between;
@@ -26,7 +28,16 @@
         z-index: 100;
         transition: background 0.3s, border-color 0.3s;
     }
-    header svg {height: 32px; width: auto; color: #000;} /* Light mode logo color */
+
+    header svg {
+        height: 32px;
+        width: auto;
+        color: #000;
+        transition: color 0.3s;
+    }
+
+    nav {display:flex;align-items:center}
+
     nav a {
         margin-left: 2rem;
         text-decoration: none;
@@ -34,8 +45,11 @@
         font-weight: 500;
         transition: color 0.3s;
     }
+
     nav a:hover {color: #0078d7;}
+
     main {display: flex; flex-direction: column;}
+
     section {
         display: flex;
         align-items: center;
@@ -43,15 +57,24 @@
         padding: 4rem 10%;
         border-bottom: 1px solid #e5e5e5;
     }
+
     section.reverse {flex-direction: row-reverse;}
+
     section img {
         max-width: 45%;
         border-radius: 12px;
         box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     }
+
     section .content {max-width: 45%;}
-    section h1 {font-size: 2.5rem; margin-bottom: 1rem;}
+
+    section h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
     section p {font-size: 1.125rem;}
+
     footer {
         text-align: center;
         padding: 2rem;
@@ -59,25 +82,44 @@
         color: #666;
     }
 
-    /* Dark mode support */
-    @media (prefers-color-scheme: dark) {
-        body {background-color: #000; color: #fff;}
-        header {background-color: #000; border-bottom: 1px solid #333;}
-        nav a {color: #fff;}
-        nav a:hover {color: #1e90ff;}
-        header svg {color: #fff;} /* Logo white in dark mode */
-        section {border-bottom: 1px solid #333;}
-        section img {box-shadow: 0 8px 20px rgba(255,255,255,0.1);}
-        footer {color: #aaa;}
+    /* Dark mode */
+    body.dark {background-color: #000; color: #fff;}
+
+    body.dark header {
+        background-color: #000;
+        border-bottom: 1px solid #333;
+    }
+
+    body.dark nav a {color: #fff;}
+    body.dark nav a:hover {color: #1e90ff;}
+    body.dark header svg {color: #fff;}
+    body.dark section {border-bottom: 1px solid #333;}
+    body.dark section img {box-shadow: 0 8px 20px rgba(255,255,255,0.1);}    
+    body.dark footer {color: #aaa;}
+
+    /* Button */
+    #themeToggle {
+        margin-left: 2rem;
+        padding: 6px 14px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        background: transparent;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    body.dark #themeToggle {
+        border-color: #666;
+        color: #fff;
     }
 </style>
 </head>
 <body>
 
 <header>
-    <!-- NCOM SVG Logo Embedded -->
+    <!-- Embedded NCOM SVG Logo -->
     <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 450 233" preserveAspectRatio="xMidYMid meet">
+        viewBox="0 0 450 233" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
         <g transform="translate(0,233) scale(0.1,-0.1)" fill="currentColor" stroke="none">
             <path d="M2040 2160 c-41 -3 -91 -14 -109 -24 -19 -10 -211 -195 -427 -410
             -306 -305 -397 -402 -415 -441 -23 -48 -24 -62 -27 -291 l-3 -242 27 -21 c24
@@ -91,11 +133,14 @@
     </svg>
 
     <nav>
-        <a href="#">About</a>
-        <a href="#">Products</a>
-        <a href="#">Innovation</a>
-        <a href="#">Careers</a>
-        <a href="#">Contact</a>
+      <a href="about.html">About</a>
+      <a href="plex.html">Plex</a>
+      <a href="dev.html">Dev</a>
+      <a href="news.html">News</a>
+      <a href="playground.html">Play-ground</a>
+      <a href="contact.html">Contact</a>
+      <!-- Theme toggle button (added to prevent JS error) -->
+      <button id="themeToggle" aria-pressed="false" title="Toggle theme">Toggle Theme</button>
     </nav>
 </header>
 
@@ -128,6 +173,20 @@
 <footer>
     &copy; 2025 NCOM. All rights reserved.
 </footer>
+
+<script>
+    // Defensive: ensure element exists before attaching listener
+    const btn = document.getElementById('themeToggle');
+    if (btn) {
+        btn.addEventListener('click', () => {
+            const isDark = document.body.classList.toggle('dark');
+            btn.setAttribute('aria-pressed', String(isDark));
+        });
+    } else {
+        // Fallback: log for debugging (won't interrupt runtime)
+        console.warn('themeToggle button not found — theme toggle disabled');
+    }
+</script>
 
 </body>
 </html>
