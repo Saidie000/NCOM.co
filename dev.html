@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <header>
     <a href="index.html" class="logo-link" aria-label="Home">
       <!-- SVG Logo -->
@@ -24,6 +25,7 @@
         </g>
       </svg>
     </a>
+
     <nav>
       <a href="about.html">About</a>
       <a href="plex.html">Plex</a>
@@ -32,6 +34,9 @@
       <a href="playground.html">Play-ground</a>
       <a href="contact.html">Contact</a>
     </nav>
+
+    <!-- Dark mode toggle button -->
+    <button id="darkModeToggle">🌙</button>
   </header>
 
   <main>
@@ -43,5 +48,14 @@
     &copy; 2025 NCOM. All rights reserved.  
     <br>Twitter: <a href="https://twitter.com/NCOM_Systems" target="_blank">@NCOM_Systems</a>
   </footer>
+
+  <!-- Dark/Light mode toggle script -->
+  <script>
+    const toggle = document.getElementById("darkModeToggle");
+    toggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+    });
+  </script>
+
 </body>
 </html>
