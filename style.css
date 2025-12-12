@@ -1,0 +1,109 @@
+/* ====================
+   NCOM Website Styles
+==================== */
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body & fonts */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: #fff;
+  color: #000;
+  line-height: 1.6;
+  transition: background 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+  background-color: #000;
+  color: #fff;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #e5e5e5;
+  position: sticky;
+  top: 0;
+  background: inherit;
+  z-index: 100;
+}
+
+header img.logo {
+  height: 40px;
+}
+
+nav a {
+  margin-left: 2rem;
+  text-decoration: none;
+  color: inherit;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+nav a:hover {
+  color: #1da1f2; /* Twitter-style hover */
+}
+
+/* Main sections */
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 10%;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+section.reverse {
+  flex-direction: row-reverse;
+}
+
+section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+section p {
+  font-size: 1.125rem;
+}
+
+/* Containers for dynamic content */
+#playground-container, #news-container {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+#playground-container div, #news-container div {
+  padding: 1rem;
+  background-color: rgba(29,161,242,0.1);
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+body.dark-mode #playground-container div,
+body.dark-mode #news-container div {
+  background-color: rgba(255,255,255,0.1);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9rem;
+  color: #666;
+  border-top: 1px solid #e5e5e5;
+}

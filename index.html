@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NCOM.co | Official Website</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+
+  <!-- Header / Navigation -->
+  <header>
+    <img src="ncom-logo.svg" alt="NCOM Logo" class="logo">
+    <nav>
+      <a href="#">About</a>
+      <a href="#">Plex</a>
+      <a href="#">Dev</a>
+      <a href="#">News</a>
+      <a href="#">Play-ground</a>
+      <a href="#">Contact</a>
+    </nav>
+    <button id="darkModeToggle">🌙</button>
+  </header>
+
+  <!-- Main content -->
+  <main>
+    <!-- Section 1 -->
+    <section>
+      <div class="content">
+        <h1 id="headline1">We Empower the World</h1>
+        <p id="subtext1">NCOM isn’t afraid to be different. We innovate boldly, taking risks to create technologies that empower people and organizations globally. Security is at our core, while celebrating open-source developers is part of our DNA.</p>
+      </div>
+    </section>
+
+    <!-- Section 2 -->
+    <section class="reverse">
+      <div class="content">
+        <h1 id="headline2">Innovation for Everyone</h1>
+        <p id="subtext2">We develop cutting-edge technology and tools that help businesses and individuals unlock their potential.</p>
+      </div>
+    </section>
+
+    <!-- Section 3 -->
+    <section>
+      <div class="content">
+        <h1 id="headline3">Secure and Reliable</h1>
+        <p id="subtext3">Our systems are built to be secure, scalable, and reliable for everyone, everywhere.</p>
+      </div>
+    </section>
+
+    <!-- Play-ground -->
+    <section>
+      <div id="playground-container"></div>
+    </section>
+
+    <!-- News -->
+    <section>
+      <div id="news-container"></div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 NCOM. All rights reserved.  
+    <br>Twitter: <a href="https://twitter.com/NCOM_Systems" target="_blank">@NCOM_Systems</a>
+  </footer>
+
+  <!-- Dark/Light mode toggle -->
+  <script>
+    const toggle = document.getElementById("darkModeToggle");
+    toggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+    });
+  </script>
+
+</body>
+</html>
